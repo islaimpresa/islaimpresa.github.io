@@ -475,6 +475,7 @@
   });
 
   // reveal with fallbacks
+  (function(){
     const els=Array.prototype.slice.call(document.querySelectorAll(".reveal"));
     const showAll=()=>els.forEach(e=>e.classList.add("in"));
     if(!("IntersectionObserver" in window)){showAll();return;}
