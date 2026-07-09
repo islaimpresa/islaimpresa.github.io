@@ -213,13 +213,13 @@
     <section id="tools">
       <div class="wrap">
         <div class="sec-head reveal">
-          <h2 data-i18n="toolsTitle">Three tools, free to use</h2>
+          <h2 data-i18n="toolsTitle">Five tools, free to use</h2>
           <p data-i18n="toolsSub">Bilingual, ten currencies, and saved to your own device. No sign-up, nothing to install.</p>
         </div>
         <div class="tools">
           <a class="tool reveal" id="cardFdm" href="https://islaimpresa.github.io/FDMCalculator/" target="_blank" rel="noopener">
-            <span class="idx">01 / 04</span>
-            <span class="ttag">FDM · Filament</span>
+            <span class="idx">01 / 05</span>
+            <span class="ttag" data-i18n="fdmTag">FDM · Filament</span>
             <h3 data-i18n="fdmTitle">FDM Cost Calculator</h3>
             <p data-i18n="fdmDesc">Price a filament print by material, time, energy, labor, and machine wear — then get a clean quote.</p>
             <ul>
@@ -230,9 +230,9 @@
             <span class="go" data-i18n="openCalc">Open calculator →</span>
           </a>
 
-          <a class="tool reveal" id="cardResin" href="https://islaimpresa.github.io/SLACalculator/">
-            <span class="idx">02 / 04</span>
-            <span class="ttag">Resin · SLA / MSLA</span>
+          <a class="tool reveal" id="cardResin" href="https://islaimpresa.github.io/SLACalculator/" target="_blank" rel="noopener">
+            <span class="idx">02 / 05</span>
+            <span class="ttag" data-i18n="resinTag">Resin · SLA / MSLA</span>
             <h3 data-i18n="resinTitle">Resin Cost Calculator</h3>
             <p data-i18n="resinDesc">Built for resin economics — per-mL resin, wash &amp; cure consumables, post-processing, and a higher failure margin.</p>
             <ul>
@@ -243,8 +243,8 @@
             <span class="go" data-i18n="openCalc">Open calculator →</span>
           </a>
 
-          <a class="tool reveal" id="cardTracker" href="https://islaimpresa.github.io/FilamentTracker/">
-            <span class="idx">03 / 04</span>
+          <a class="tool reveal" id="cardTracker" href="https://islaimpresa.github.io/FilamentTracker/" target="_blank" rel="noopener">
+            <span class="idx">03 / 05</span>
             <span class="ttag" data-i18n="trackerTag">Inventory</span>
             <h3 data-i18n="trackerTitle">Filament Spool Tracker</h3>
             <p data-i18n="trackerDesc">Log every spool, track grams left and cost per gram, and catch low stock before it stops a print.</p>
@@ -256,8 +256,8 @@
             <span class="go" data-i18n="openTracker">Open tracker →</span>
           </a>
 
-          <a class="tool reveal" id="cardResinTracker" href="https://islaimpresa.github.io/ResinTracker/">
-            <span class="idx">04 / 04</span>
+          <a class="tool reveal" id="cardResinTracker" href="https://islaimpresa.github.io/ResinTracker/" target="_blank" rel="noopener">
+            <span class="idx">04 / 05</span>
             <span class="ttag" data-i18n="rtrackerTag">Inventory · Resin</span>
             <h3 data-i18n="rtrackerTitle">Resin Bottle Tracker</h3>
             <p data-i18n="rtrackerDesc">Track resin by mL and cost per mL, with shelf-life alerts so you use opened bottles before they go bad.</p>
@@ -267,6 +267,19 @@
               <li data-i18n="rtrackerF3">Export &amp; restore</li>
             </ul>
             <span class="go" data-i18n="openTracker">Open tracker →</span>
+          </a>
+
+          <a class="tool reveal" id="cardConverter" href="https://islaimpresa.github.io/UnitConverter/" target="_blank" rel="noopener">
+            <span class="idx">05 / 05</span>
+            <span class="ttag" data-i18n="convTag">Length · Scale · Volume</span>
+            <h3 data-i18n="convTitle">Unit &amp; Scale Converter</h3>
+            <p data-i18n="convDesc">Convert length, dial in a scale percentage for resizing a model, and convert volume — inches, feet, cm, mm, and mL, all in one place.</p>
+            <ul>
+              <li data-i18n="convF1">Length: mm, cm, in, ft</li>
+              <li data-i18n="convF2">Scale calculator for resizing</li>
+              <li data-i18n="convF3">Volume: mm³, cm³, in³</li>
+            </ul>
+            <span class="go" data-i18n="openConverter">Open converter →</span>
           </a>
         </div>
       </div>
@@ -385,11 +398,13 @@
       heroCtaTools:"Explore the tools",heroCtaQuote:"Commission a print",
       meta1:"Free, no account",meta2:"English & Español",meta3:"Works offline",
       ruleTools:"Tools",ruleWork:"Work",ruleStudio:"Studio",
-      toolsTitle:"Four tools, free to use",
+      toolsTitle:"Five tools, free to use",
       toolsSub:"Bilingual, ten currencies, and saved to your own device. No sign-up, nothing to install.",
+      fdmTag:"FDM · Filament",
       fdmTitle:"FDM Cost Calculator",
       fdmDesc:"Price a filament print by material, time, energy, labor, and machine wear — then get a clean quote.",
       fdmF1:"Full cost breakdown",fdmF2:"Batch & bulk pricing",fdmF3:"Branded PDF quotes",
+      resinTag:"Resin · SLA / MSLA",
       resinTitle:"Resin Cost Calculator",
       resinDesc:"Built for resin economics — per-mL resin, wash & cure consumables, post-processing, and a higher failure margin.",
       resinF1:"Consumables tracked",resinF2:"Post-processing labor",resinF3:"Batch & PDF quotes",
@@ -399,7 +414,10 @@
       rtrackerTag:"Inventory · Resin",rtrackerTitle:"Resin Bottle Tracker",
       rtrackerDesc:"Track resin by mL and cost per mL, with shelf-life alerts so you use opened bottles before they go bad.",
       rtrackerF1:"Shelf-life alerts",rtrackerF2:"Low-stock warnings",rtrackerF3:"Export & restore",
-      openCalc:"Open calculator →",openTracker:"Open tracker →",soon:"Soon",
+      openCalc:"Open calculator →",openTracker:"Open tracker →",openConverter:"Open converter →",soon:"Soon",
+      convTag:"Length · Scale · Volume",convTitle:"Unit & Scale Converter",
+      convDesc:"Convert length, dial in a scale percentage for resizing a model, and convert volume — inches, feet, cm, mm, and mL, all in one place.",
+      convF1:"Length: mm, cm, in, ft",convF2:"Scale calculator for resizing",convF3:"Volume: mm³, cm³, in³",
       workTitle:"A look at what we print",
       workSub:"Custom pieces, functional parts, and small runs — in filament and resin.",
       studioLine:"Isla Impresa is a 3D printing and custom design studio in Ponce, Puerto Rico. We made these tools for our own shop, then opened them to everyone.",
@@ -420,11 +438,13 @@
       heroCtaTools:"Explora las herramientas",heroCtaQuote:"Encarga una impresión",
       meta1:"Gratis, sin cuenta",meta2:"English & Español",meta3:"Funciona sin conexión",
       ruleTools:"Herramientas",ruleWork:"Trabajos",ruleStudio:"Estudio",
-      toolsTitle:"Cuatro herramientas, gratis",
+      toolsTitle:"Cinco herramientas, gratis",
       toolsSub:"Bilingües, diez monedas y guardadas en tu propio dispositivo. Sin registro, nada que instalar.",
+      fdmTag:"FDM · Filamento",
       fdmTitle:"Calculadora de Costos FDM",
       fdmDesc:"Cotiza una impresión por material, tiempo, energía, mano de obra y desgaste de máquina — y obtén una cotización clara.",
       fdmF1:"Desglose completo de costos",fdmF2:"Precios por volumen",fdmF3:"Cotizaciones PDF con tu marca",
+      resinTag:"Resina · SLA / MSLA",
       resinTitle:"Calculadora de Costos Resina",
       resinDesc:"Hecha para la economía de la resina — resina por mL, consumibles de lavado y curado, postprocesado y mayor margen de falla.",
       resinF1:"Consumibles incluidos",resinF2:"Mano de obra de postprocesado",resinF3:"Volumen y cotización PDF",
@@ -434,7 +454,10 @@
       rtrackerTag:"Inventario · Resina",rtrackerTitle:"Rastreador de Resina",
       rtrackerDesc:"Controla la resina por mL y el costo por mL, con alertas de vida útil para usar las botellas abiertas antes de que se dañen.",
       rtrackerF1:"Alertas de vida útil",rtrackerF2:"Avisos de bajo stock",rtrackerF3:"Exportar y restaurar",
-      openCalc:"Abrir calculadora →",openTracker:"Abrir rastreador →",soon:"Pronto",
+      openCalc:"Abrir calculadora →",openTracker:"Abrir rastreador →",openConverter:"Abrir conversor →",soon:"Pronto",
+      convTag:"Longitud · Escala · Volumen",convTitle:"Conversor de Unidades y Escala",
+      convDesc:"Convierte longitud, calcula el porcentaje de escala para redimensionar un modelo, y convierte volumen — pulgadas, pies, cm, mm y mL, todo en un solo lugar.",
+      convF1:"Longitud: mm, cm, in, ft",convF2:"Calculadora de escala",convF3:"Volumen: mm³, cm³, in³",
       workTitle:"Un vistazo a lo que imprimimos",
       workSub:"Piezas personalizadas, partes funcionales y producciones pequeñas — en filamento y resina.",
       studioLine:"Isla Impresa es un estudio de impresión 3D y diseño personalizado en Ponce, Puerto Rico. Hicimos estas herramientas para nuestro propio taller y luego las abrimos a todos.",
