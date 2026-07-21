@@ -1,0 +1,7 @@
+# Isla Impresa — islaimpresa.com
+# 3D printing & custom design studio · Ponce, Puerto Rico
+
+User-agent: *
+Allow: /
+
+Sitemap: https://islaimpresa.com/sitemap.xml
