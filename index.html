@@ -227,16 +227,113 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Isla Impresa", "url": "https://islaimpresa.com/", "description": "3D printing and custom design studio in Ponce, Puerto Rico.", "sameAs": ["https://www.instagram.com/islaimpresa/", "https://www.facebook.com/Islaimpresa/"]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Isla Impresa", "url": "https://islaimpresa.com/"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "Free 3D printing tools by Isla Impresa", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "FDM Cost Calculator", "url": "https://islaimpresa.com/FDMCalculator/"}, {"@type": "ListItem", "position": 2, "name": "Resin Cost Calculator", "url": "https://islaimpresa.com/SLACalculator/"}, {"@type": "ListItem", "position": 3, "name": "Tolerance & Shrinkage Calculator", "url": "https://islaimpresa.com/ToleranceCalculator/"}, {"@type": "ListItem", "position": 4, "name": "Filament Spool Tracker", "url": "https://islaimpresa.com/FilamentTracker/"}, {"@type": "ListItem", "position": 5, "name": "Resin Bottle Tracker", "url": "https://islaimpresa.com/ResinTracker/"}, {"@type": "ListItem", "position": 6, "name": "Unit & Scale Converter", "url": "https://islaimpresa.com/UnitConverter/"}, {"@type": "ListItem", "position": 7, "name": "3D Print Troubleshooter", "url": "https://islaimpresa.com/Troubleshooter/"}, {"@type": "ListItem", "position": 8, "name": "Material Selector", "url": "https://islaimpresa.com/MaterialSelector/"}, {"@type": "ListItem", "position": 9, "name": "Filament Drying Guide", "url": "https://islaimpresa.com/DryingGuide/"}]}</script>
-<!-- Isla Impresa analytics — uncomment ONE provider below -->
-<!-- PLAUSIBLE (recommended: no cookies, no consent banner)
-<script defer data-domain="islaimpresa.com" src="https://plausible.io/js/script.outbound-links.tagged-events.js"></script>
-<script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
--->
-<!-- GA4 (free, but requires a cookie consent banner) — replace G-XXXXXXXXXX
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX',{anonymize_ip:true});</script>
--->
-<script>window.isla=function(n,p){try{if(typeof window.plausible==="function"){window.plausible(n,p?{props:p}:undefined);}if(typeof window.gtag==="function"){window.gtag('event',n.toLowerCase().replace(/[^a-z0-9]+/g,'_'),p||{});}}catch(e){}};</script>
+<!-- Isla Impresa analytics — GA4, geo-gated consent (EU/UK only). No third-party CMP. -->
+<style>
+#ia-consent{position:fixed;left:16px;right:16px;bottom:16px;z-index:9999;max-width:520px;margin:0 auto;background:#16282d;color:#eef4f5;border:1px solid #223d44;border-radius:14px;padding:18px 20px;box-shadow:0 18px 40px -18px rgba(0,0,0,.7);font-family:"Inter",system-ui,sans-serif;display:none}
+#ia-consent.show{display:block}
+#ia-consent p{margin:0 0 14px;font-size:.9rem;line-height:1.5;color:#c9d8db}
+#ia-consent a{color:#34b8c8;text-decoration:underline}
+#ia-consent .ia-row{display:flex;gap:10px;flex-wrap:wrap}
+#ia-consent button{flex:1;min-width:120px;font-family:"Inter",system-ui,sans-serif;font-weight:600;font-size:.9rem;padding:10px 16px;border-radius:9px;cursor:pointer;border:1px solid transparent;transition:filter .15s,border-color .15s}
+#ia-consent .ia-accept{background:#34b8c8;color:#06181c}
+#ia-consent .ia-accept:hover{filter:brightness(1.08)}
+#ia-consent .ia-decline{background:transparent;color:#eef4f5;border-color:#223d44}
+#ia-consent .ia-decline:hover{border-color:#34b8c8}
+</style>
+<script>
+(function(){
+  "use strict";
+  var GA_ID="G-FQKCDDMBKZ";
+  var STORE="islaConsent";
+  var REGIONS={AT:1,BE:1,BG:1,HR:1,CY:1,CZ:1,DK:1,EE:1,FI:1,FR:1,DE:1,GR:1,HU:1,IE:1,IT:1,LV:1,LT:1,LU:1,MT:1,NL:1,PL:1,PT:1,RO:1,SK:1,SI:1,ES:1,SE:1,IS:1,LI:1,NO:1,GB:1,CH:1,BR:1};
+
+  function loadGA(){
+    if(window.__iaGAloaded)return; window.__iaGAloaded=true;
+    var s=document.createElement("script");
+    s.async=true; s.src="https://www.googletagmanager.com/gtag/js?id="+GA_ID;
+    document.head.appendChild(s);
+    window.dataLayer=window.dataLayer||[];
+    window.gtag=function(){dataLayer.push(arguments);};
+    gtag("js",new Date());
+    gtag("config",GA_ID,{anonymize_ip:true});
+  }
+
+  function stored(){try{return localStorage.getItem(STORE);}catch(e){return null;}}
+  function save(v){try{localStorage.setItem(STORE,v);}catch(e){}}
+
+  function decide(country,st){
+    if(st==="granted")return{load:true,banner:false};
+    if(st==="denied")return{load:false,banner:false};
+    if(country&&REGIONS[country])return{load:false,banner:true};
+    return{load:true,banner:false};
+  }
+
+  function showBanner(){
+    var el=document.getElementById("ia-consent");
+    if(el)el.classList.add("show");
+  }
+  function hideBanner(){
+    var el=document.getElementById("ia-consent");
+    if(el)el.classList.remove("show");
+  }
+
+  function apply(country){
+    var d=decide(country,stored());
+    if(d.load)loadGA();
+    if(d.banner)showBanner();
+  }
+
+  var T={
+    en:{txt:"We use Google Analytics to understand what\u2019s useful and improve the site. Nothing is used for ads. Okay to measure your visit?",priv:"Privacy",acc:"Accept",dec:"Decline"},
+    es:{txt:"Usamos Google Analytics para entender qu\u00e9 es \u00fatil y mejorar el sitio. Nada se usa para anuncios. \u00bfPodemos medir tu visita?",priv:"Privacidad",acc:"Aceptar",dec:"Rechazar"}
+  };
+  function applyBannerLang(){
+    var lang="en";
+    try{var l=localStorage.getItem("islaLang");if(l==="es")lang="es";}catch(e){}
+    var t=T[lang];
+    var txt=document.getElementById("ia-consent-text");
+    var a=document.getElementById("ia-accept"),x=document.getElementById("ia-decline");
+    if(txt)txt.innerHTML=t.txt+' \u00b7 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">'+t.priv+'</a>';
+    if(a)a.textContent=t.acc;
+    if(x)x.textContent=t.dec;
+  }
+  // Wire banner buttons once DOM is ready
+  function wire(){
+    applyBannerLang();
+    var a=document.getElementById("ia-accept"), x=document.getElementById("ia-decline");
+    if(a)a.addEventListener("click",function(){save("granted");hideBanner();loadGA();});
+    if(x)x.addEventListener("click",function(){save("denied");hideBanner();});
+  }
+
+  function start(){
+    wire();
+    var st=stored();
+    // fast path: choice already stored, or clearly no banner needed without geo
+    if(st){apply(null);return;}
+    // need geo only to decide whether to banner. Timeout-guarded.
+    var done=false;
+    var to=setTimeout(function(){if(done)return;done=true;apply(null);},1500); // geo fail => auto-load
+    try{
+      fetch("https://ipapi.co/country/",{cache:"no-store"}).then(function(r){return r.text();}).then(function(t){
+        if(done)return;done=true;clearTimeout(to);
+        apply((t||"").trim().toUpperCase().slice(0,2));
+      }).catch(function(){if(done)return;done=true;clearTimeout(to);apply(null);});
+    }catch(e){if(!done){done=true;clearTimeout(to);apply(null);}}
+  }
+
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",start);
+  else start();
+})();
+window.isla=function(n,p){try{if(typeof window.gtag==="function"){window.gtag('event',n.toLowerCase().replace(/[^a-z0-9]+/g,'_'),p||{});}}catch(e){}};
+</script>
+<div id="ia-consent" role="dialog" aria-live="polite" aria-label="Privacy choices">
+  <p id="ia-consent-text">We use Google Analytics to understand what's useful and improve the site. Nothing is used for ads. Okay to measure your visit? · <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy</a></p>
+  <div class="ia-row">
+    <button class="ia-accept" id="ia-accept">Accept</button>
+    <button class="ia-decline" id="ia-decline">Decline</button>
+  </div>
+</div>
+
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","@id":"https://islaimpresa.com/#business","name":"Isla Impresa","description":"3D printing and custom design studio in Ponce, Puerto Rico. Made-to-order custom pieces — baby name art, trophies, event decor, and one-of-a-kind commissions — designed, printed, painted and finished end to end.","url":"https://islaimpresa.com/","image":"https://islaimpresa.com/og.png","telephone":"+1-787-601-3931","priceRange":"$$","address":{"@type":"PostalAddress","addressLocality":"Ponce","addressRegion":"PR","addressCountry":"PR"},"areaServed":[{"@type":"AdministrativeArea","name":"Puerto Rico"},{"@type":"Country","name":"United States"}],"knowsLanguage":["en","es"],"sameAs":["https://www.instagram.com/islaimpresa/","https://www.facebook.com/Islaimpresa/"],"founder":{"@type":"Person","name":"Pedro"},"foundingDate":"2016","makesOffer":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Custom 3D printed baby name art","serviceType":"Custom fabrication"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Custom trophies and awards","serviceType":"Custom fabrication"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Event and party decor","serviceType":"Custom fabrication"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Custom design commissions (FDM & resin)","serviceType":"Design and fabrication"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Lithophane printing and framing","serviceType":"Custom fabrication"}}],"contactPoint":{"@type":"ContactPoint","contactType":"sales","telephone":"+1-787-601-3931","availableLanguage":["en","es"]}}</script>
 </head>
 <body>
