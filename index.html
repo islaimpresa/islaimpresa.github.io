@@ -195,6 +195,34 @@
   .group-label{grid-column:1/-1;font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding-top:16px;border-top:1px solid var(--hair);margin-top:8px}
   .tools .group-label:first-child{border-top:none;padding-top:0;margin-top:0}
   .new-badge{position:absolute;top:16px;right:16px;background:var(--accent);color:#fff;font-family:var(--mono);font-size:.6rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:4px 9px;border-radius:999px;z-index:2}
+
+/* ===== Shop section ===== */
+#shop{padding:78px 0}
+.shop-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:6px}
+@media(max-width:760px){.shop-grid{grid-template-columns:1fr;gap:18px}}
+.shop-card{background:var(--raised);border:1px solid var(--hair);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow);transition:transform .18s,border-color .2s}
+.shop-card:hover{transform:translateY(-3px);border-color:var(--accent)}
+.shop-media{position:relative;display:block;aspect-ratio:4/3;overflow:hidden;background:var(--raised-2)}
+.shop-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.shop-card:hover .shop-media img{transform:scale(1.04)}
+.shop-tag{position:absolute;top:12px;left:12px;font-family:var(--mono);font-size:.68rem;letter-spacing:.3px;color:var(--ink);background:rgba(6,24,28,.72);backdrop-filter:blur(4px);padding:5px 10px;border-radius:7px;border:1px solid var(--hair)}
+.shop-tag-brass{color:var(--btn-ink);background:var(--brass);border-color:transparent}
+.shop-media-commission{display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--raised-2),var(--raised))}
+.shop-commission-art{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 42%,color-mix(in srgb,var(--brass) 22%,transparent),transparent 62%)}
+.scc-mark{font-size:3.4rem;color:var(--brass);opacity:.85;line-height:1}
+.shop-body{padding:20px 22px 22px;display:flex;flex-direction:column;flex:1}
+.shop-body h3{font-family:var(--display);font-size:1.32rem;line-height:1.15;margin:0 0 8px;color:var(--ink)}
+.shop-desc{color:var(--muted);font-size:.95rem;line-height:1.5;margin:0 0 16px;flex:1}
+.shop-meta{display:flex;flex-direction:column;gap:3px;margin-bottom:16px}
+.shop-price{font-family:var(--display);font-size:1.15rem;color:var(--ink);font-weight:600}
+.shop-price-brass{color:var(--brass)}
+.shop-unit{font-family:var(--body);font-size:.92rem;color:var(--muted);font-weight:400}
+.shop-from{font-family:var(--body);font-size:.9rem;color:var(--muted);font-weight:400}
+.shop-trust{font-family:var(--mono);font-size:.72rem;color:var(--muted);letter-spacing:.2px}
+.shop-btn{text-align:center;margin-top:auto}
+.btn-brass{background:var(--brass);color:var(--btn-ink)}
+.btn-brass:hover{transform:translateY(-2px);filter:brightness(1.06)}
+.shop-foot{max-width:680px;margin:26px auto 0;text-align:center;color:var(--muted);font-size:.9rem;line-height:1.55}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Isla Impresa", "url": "https://islaimpresa.com/", "description": "3D printing and custom design studio in Ponce, Puerto Rico.", "sameAs": ["https://www.instagram.com/islaimpresa/", "https://www.facebook.com/Islaimpresa/"]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Isla Impresa", "url": "https://islaimpresa.com/"}</script>
@@ -218,6 +246,7 @@
       <nav class="nav-links">
         <a class="navlink" href="#studio" data-i18n="navStudio">Studio</a>
         <a class="navlink" href="#work" data-i18n="navWork">Work</a>
+        <a class="navlink" href="#shop" data-i18n="navShop">Shop</a>
         <a class="navlink" href="#tools" data-i18n="navTools">Tools</a>
         <a class="navlink" href="#contact" data-i18n="navContact">Contact</a>
         <button class="ctrl" id="themeBtn" onclick="toggleTheme()" aria-label="Toggle light or dark theme">☀</button>
@@ -282,6 +311,51 @@
     </section>
 
     <div class="wrap"><div class="rule"><span class="mark"><b>03</b> · <span data-i18n="ruleTools">Tools</span></span><span class="ticks"></span></div></div>
+
+    <section id="shop">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <h2 data-i18n="shopTitle">Buy a piece, or start something custom</h2>
+          <p data-i18n="shopSub">Ready-made favorites ship from Ponce. Have your own idea? We build it with you, end to end.</p>
+        </div>
+        <div class="shop-grid reveal">
+
+          <article class="shop-card">
+            <a class="shop-media" href="https://www.etsy.com/listing/4524318090/custom-bubble-letters-name-sign-3d" target="_blank" rel="noopener" aria-label="Custom Bubble Letter Name Signs on Etsy" onclick="isla('Etsy Click',{page:'hub',product:'bubble-letters'})">
+              <img src="shop-babyname.jpg" alt="Custom 3D bubble letter name sign spelling ARIA above a nursery changing table" loading="lazy">
+              <span class="shop-tag" data-i18n="shopEtsyTag">Etsy · ships worldwide</span>
+            </a>
+            <div class="shop-body">
+              <h3 data-i18n="shopEtsyName">Custom Bubble Letter Name Signs</h3>
+              <p class="shop-desc" data-i18n="shopEtsyDesc">Soft, rounded 3D letters in your custom colors — a keepsake that outlasts the crib. Raw or hand-painted.</p>
+              <div class="shop-meta">
+                <span class="shop-price"><span data-i18n="shopFrom">from</span> $12<span class="shop-unit" data-i18n="shopPerLetter"> / letter</span></span>
+                <span class="shop-trust" data-i18n="shopEtsyTrust">Made to order · 5–7 day production</span>
+              </div>
+              <a class="btn btn-primary shop-btn" href="https://www.etsy.com/listing/4524318090/custom-bubble-letters-name-sign-3d" target="_blank" rel="noopener" data-i18n="shopEtsyBtn" onclick="isla('Etsy Click',{page:'hub',product:'bubble-letters'})">Buy on Etsy</a>
+            </div>
+          </article>
+
+          <article class="shop-card shop-card-commission">
+            <a class="shop-media shop-media-commission" href="https://wa.me/17876013931?text=Hola%20Isla%20Impresa%20%F0%9F%91%8B%20Tengo%20una%20idea%20personalizada%20que%20me%20gustar%C3%ADa%20cotizar." target="_blank" rel="noopener" aria-label="Start a custom commission on WhatsApp" onclick="isla('Commission CTA',{page:'hub',source:'shop'})">
+              <div class="shop-commission-art" aria-hidden="true"><span class="scc-mark">✦</span></div>
+              <span class="shop-tag shop-tag-brass" data-i18n="shopCommTag">Direct · one-of-a-kind</span>
+            </a>
+            <div class="shop-body">
+              <h3 data-i18n="shopCommName">Commission something custom</h3>
+              <p class="shop-desc" data-i18n="shopCommDesc">A trophy, a gift, a concept that doesn't exist yet. Send your idea and we design, print, and finish it together — direct, no platform fees.</p>
+              <div class="shop-meta">
+                <span class="shop-price shop-price-brass" data-i18n="shopCommPrice">Quoted per project</span>
+                <span class="shop-trust" data-i18n="shopCommTrust">Designed &amp; made in Puerto Rico</span>
+              </div>
+              <a class="btn btn-brass shop-btn" href="https://wa.me/17876013931?text=Hola%20Isla%20Impresa%20%F0%9F%91%8B%20Tengo%20una%20idea%20personalizada%20que%20me%20gustar%C3%ADa%20cotizar." target="_blank" rel="noopener" data-i18n="shopCommBtn" onclick="isla('Commission CTA',{page:'hub',source:'shop'})">Start a commission</a>
+            </div>
+          </article>
+
+        </div>
+        <p class="shop-foot reveal" data-i18n="shopFoot">Browse-and-buy on Etsy for platform trust and buyer protection — or commission directly for custom work and lower cost. Either way, it's made by the same hands.</p>
+      </div>
+    </section>
 
     <section id="tools">
       <div class="wrap">
@@ -513,6 +587,9 @@
   const T={
     en:{
       navStudio:"Studio",navTools:"Tools",navWork:"Work",navContact:"Contact",
+      navShop:"Shop",
+      shopTitle:"Buy a piece, or start something custom",shopSub:"Ready-made favorites ship from Ponce. Have your own idea? We build it with you, end to end.",shopEtsyTag:"Etsy · ships worldwide",shopEtsyName:"Custom Bubble Letter Name Signs",shopEtsyDesc:"Soft, rounded 3D letters in your custom colors — a keepsake that outlasts the crib. Raw or hand-painted.",shopFrom:"from",shopPerLetter:" / letter",shopEtsyTrust:"Made to order · 5–7 day production",shopEtsyBtn:"Buy on Etsy",shopCommTag:"Direct · one-of-a-kind",shopCommName:"Commission something custom",shopCommDesc:"A trophy, a gift, a concept that doesn't exist yet. Send your idea and we design, print, and finish it together — direct, no platform fees.",shopCommPrice:"Quoted per project",shopCommTrust:"Designed & made in Puerto Rico",shopCommBtn:"Start a commission",shopFoot:"Browse-and-buy on Etsy for platform trust and buyer protection — or commission directly for custom work and lower cost. Either way, it's made by the same hands.",
+      
       heroEyebrow:"A 3D printing & custom design studio · Ponce, Puerto Rico",
       heroTitle:"Any idea, |made right.",
       heroLede:"Custom pieces designed, modeled, printed, painted, and finished end to end — baby name art, trophies, event decor, and one-of-a-kind commissions. Plus free tools for makers, built to the same standard we hold our own prints to.",
@@ -565,6 +642,9 @@
     },
     es:{
       navStudio:"Estudio",navTools:"Herramientas",navWork:"Trabajos",navContact:"Contacto",
+      navShop:"Tienda",
+      shopTitle:"Compra una pieza, o crea algo a tu medida",shopSub:"Los favoritos listos salen desde Ponce. ¿Tienes tu propia idea? La construimos contigo, de principio a fin.",shopEtsyTag:"Etsy · envíos a todo el mundo",shopEtsyName:"Letras 3D Personalizadas para Nombres",shopEtsyDesc:"Letras 3D suaves y redondeadas en tus colores — un recuerdo que dura más que la cuna. Crudas o pintadas a mano.",shopFrom:"desde",shopPerLetter:" / letra",shopEtsyTrust:"Hecho por encargo · producción 5–7 días",shopEtsyBtn:"Comprar en Etsy",shopCommTag:"Directo · única en su tipo",shopCommName:"Encarga algo personalizado",shopCommDesc:"Un trofeo, un regalo, un concepto que aún no existe. Envía tu idea y la diseñamos, imprimimos y terminamos juntos — directo, sin comisiones de plataforma.",shopCommPrice:"Cotizado por proyecto",shopCommTrust:"Diseñado y hecho en Puerto Rico",shopCommBtn:"Iniciar un encargo",shopFoot:"Compra en Etsy por la confianza y protección de la plataforma — o encarga directo para trabajo personalizado y menor costo. De cualquier forma, lo hacen las mismas manos.",
+      
       heroEyebrow:"Estudio de impresión 3D y diseño custom · Ponce, Puerto Rico",
       heroTitle:"Cualquier idea, |bien hecha.",
       heroLede:"Piezas custom diseñadas, modeladas, impresas, pintadas y terminadas de principio a fin — letreros de bebé, trofeos, decoración de eventos y comisiones únicas. Además, herramientas gratis para makers, hechas con el mismo estándar de nuestros prints.",
